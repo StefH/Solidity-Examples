@@ -5,6 +5,10 @@
         "mocha"
     ],
     "rules": {
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
         "indent": [
             "error",
             4

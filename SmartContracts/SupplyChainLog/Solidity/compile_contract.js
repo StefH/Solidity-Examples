@@ -42,7 +42,7 @@ function generateContractService(inputPath, outPath, contractName, ns, abi, byte
         _contractName: contractName,
         abi: JSON.parse(abi),
         bytecode,
-        namespace: ns,
+        namespace: ns
     };
 
     console.log(`${contractName}: generate C# interfaces`);

@@ -48,5 +48,5 @@ function fromUtf8(value) {
 module.exports = {
     fromUtf8,
     ERROR_REVERT,
-    ERROR_INVALID_ADDRESS,
+    ERROR_INVALID_ADDRESS
 };

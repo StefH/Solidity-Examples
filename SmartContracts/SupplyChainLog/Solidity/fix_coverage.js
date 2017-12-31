@@ -4,7 +4,7 @@ const options = {
     files: 'contracts/*.html',
 
     from: /..\/..\/..\/..\/..\/..\/..\/..\/..\/../g,
-    to: '../coverage',
+    to: '../coverage'
 };
 
 replaceInFiles(options);
