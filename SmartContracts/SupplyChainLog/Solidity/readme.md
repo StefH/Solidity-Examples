@@ -2,7 +2,7 @@
 
 ## Pre
 
-- NPM and Node.js (<https://nodejs.org/en/>), version 7 or greather.
+- NPM and Node.js (<https://nodejs.org/en/>), version 7 or greater.
 - Install Windows Build Tools globally (<https://www.npmjs.com/package/windows-build-tools>)
 - Install the following extensions in VSCode : `solidity`, `.ejs`, `eslint` and `markdownlint`.
 
