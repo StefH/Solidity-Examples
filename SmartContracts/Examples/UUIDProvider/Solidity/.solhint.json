@@ -1,0 +1,28 @@
+{
+    "extends": "default",
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "max-line-length": [
+            "error",
+            200
+        ],
+        "function-max-lines" : [
+            "error",
+            100
+        ],
+        "code-complexity" : [
+            "error",
+            12
+        ],
+        "avoid-tx-origin" : [
+            "warning"
+        ]
+    }
+}

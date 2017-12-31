@@ -1,0 +1,7 @@
+coverage
+coverageEnv
+contracts/*.html
+scTopics
+allFiredEvents
+coverage.json
+contracts/build/*.*

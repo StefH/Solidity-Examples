@@ -1,0 +1,49 @@
+{
+  "name": "supplychainlog",
+  "version": "1.0.0",
+  "description": "SupplyChainLog",
+  "scripts": {
+    "clean": "rimraf ./contracts/build/*.*",
+    "lint": "solhint ./contracts/SupplyChainLogContract.sol",
+    "coverage-fix": "concurrently --names \"TestRPC,Coverage\" --kill-others \"node_modules\\.bin\\testrpc-sc --port 8555\" \"node_modules\\.bin\\solidity-coverage\" || true && node ./fix_coverage",
+    "coverage": "concurrently --names \"TestRPC,Coverage\" --kill-others \"node_modules\\.bin\\testrpc-sc --port 8555\" \"node_modules\\.bin\\solidity-coverage\" || true",
+    "ejs-lint": "ejslint ../../Common/templates/*.ejs",
+    "build": "npm test && npm run clean && mkdirp ./contracts/build && node ./compile_contract ./contracts/SupplyChainLogContract.sol ./contracts/build ConsoleApp",
+    "test": "npm run lint && truffle test"
+  },
+  "author": "Stef Heyenrath",
+  "license": "MIT",
+  "engines": {
+    "node": ">=7.0.0",
+    "npm": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StefH/Solidity-Examples"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.1.2",
+    "cash-true": "0.0.2",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "concurrently": "^3.5.1",
+    "ejs-lint": "^0.3.0",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jasmine": "^2.9.1",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-react": "^7.5.1",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.2",
+    "solhint": "^1.1.9",
+    "solidity-coverage": "^0.4.7",
+    "truffle": "^4.0.4"
+  },
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "replace-in-files": "^1.1.1",
+    "solc": "^0.4.19",
+    "utf8": "^3.0.0"
+  }
+}

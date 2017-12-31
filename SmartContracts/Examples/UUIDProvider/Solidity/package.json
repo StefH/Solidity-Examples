@@ -1,0 +1,27 @@
+{
+  "name": "uuidprovider",
+  "version": "1.0.0",
+  "description": "uuidprovider",
+  "scripts": {
+    "clean": "rimraf ./contracts/build/*.*",
+    "lint": "solhint ./contracts/UUIDProviderContract.sol",
+    "ejs-lint": "ejslint ./templates/*.ejs",
+    "build": "npm test && npm run clean && mkdirp ./contracts/build && node compile_contract ./contracts/UUIDProviderContract.sol ./contracts/build ConsoleApp",
+    "test": "npm run lint && truffle test"
+  },
+  "author": "Stef Heyenrath",
+  "license": "MIT",
+  "engines": {
+    "node": ">=7.0.0",
+    "npm": "^3.0.0"
+  },
+  "devDependencies": {
+    "ejs": "^2.5.7",
+    "ejs-lint": "^0.3.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.2",
+    "solc": "^0.4.19",
+    "solhint": "^1.1.9",
+    "truffle": "^4.0.3"
+  }
+}

@@ -1,0 +1,1 @@
+[{"constant":false,"inputs":[],"name":"generateUUID4","outputs":[{"name":"uuid","type":"bytes16"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"uuid","type":"bytes16"}],"name":"UUIDEvent","type":"event"}]
