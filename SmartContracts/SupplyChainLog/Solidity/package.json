@@ -7,6 +7,7 @@
     "lint": "solhint ./contracts/SupplyChainLogContract.sol",
     "coverage-fix": "concurrently --names \"TestRPC,Coverage\" --kill-others \"node_modules\\.bin\\testrpc-sc --port 8555\" \"node_modules\\.bin\\solidity-coverage\" || true && node ./fix_coverage",
     "coverage": "concurrently --names \"TestRPC,Coverage\" --kill-others \"node_modules\\.bin\\testrpc-sc --port 8555\" \"node_modules\\.bin\\solidity-coverage\" || true",
+    "coverage2": "node_modules\\.bin\\solidity-coverage",
     "ejs-lint": "ejslint ../../Common/templates/*.ejs",
     "build": "npm test && npm run clean && mkdirp ./contracts/build && node ./compile_contract ./contracts/SupplyChainLogContract.sol ./contracts/build ConsoleApp",
     "test": "npm run lint && truffle test"
