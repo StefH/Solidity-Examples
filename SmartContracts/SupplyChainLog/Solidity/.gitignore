@@ -1,6 +1,6 @@
 coverage
 coverageEnv
-contracts/*.html
 scTopics
 allFiredEvents
 contracts/build/*.*
+coverage.json
