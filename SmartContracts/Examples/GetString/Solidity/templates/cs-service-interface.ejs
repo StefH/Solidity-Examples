@@ -1,20 +1,12 @@
-using System;
-using System.Numerics;
 using System.Threading.Tasks;
-using Nethereum.Contracts;
+using System.Numerics;
 using Nethereum.Hex.HexTypes;
-using Nethereum.RPC.Eth.DTOs;
+using Nethereum.Contracts;
 
-// Created with 'Solidity to C# generator' by stef.heyenrath@mstack.nl (mStack B.V.)
-// Based on abi-code-gen (https://github.com/Nethereum/abi-code-gen)
 namespace <%= locals.namespace ? namespace : 'DefaultNamespace' %>
 {
-    public interface I<%= capitalizeFirstLetter(getContractName()) %>Service
-    {
-        Task<TransactionReceipt> ExecuteTransactionAsync(Func<I<%= capitalizeFirstLetter(getContractName()) %>Service, Task<string>> func, int timeoutInSeconds = 120);
-
-        Task<BlockWithTransactions> GetBlockWithTransactionsAsync(string blockhash);
-
+   public interface I<%= capitalizeFirstLetter(getContractName()) %>Service
+   {
 <%= abi.forEach(generateGetFunction) %>
 <%= abi.forEach(generateGetEvent) %>
 <%= abi.forEach(generateFunctionCall) %>
@@ -37,21 +29,22 @@ function abiToText(abi) {
 
 function getGenericReturnType(item) {
     var returnType = getReturnType(item);
-    return item === null ? '' : '<' + returnType + '>';
+    if (item === null) return '';
+    return '<' + returnType + '>';
 }
 
 function generateFunctionInputParameters(item) {
     var params = '';
     if (item.inputs !== null && item.inputs.length > 0) {
         
-        item.inputs.forEach(function(input, index) {
+        item.inputs.forEach( function(input, index) {
             var prefix = ', ';
             if (params === '') {
                 prefix = '';
             }
             params = params + prefix + getTypeMap(input.type) + ' ' + getParamName(input.name, index);
         })
-    }
+    } 
     return params;
 }
 
@@ -215,10 +208,6 @@ function getTypeMap(typeName) {
         return 'byte[]';
     }
 
-    // if (typeName === 'bytes32') {
-    //     return 'string';
-    // }
-
     if (typeName.startsWith('bytes')) {
         return 'byte[]';
     }
@@ -235,26 +224,14 @@ _%>
         Event Get<%= capitalizeFirstLetter(item.name) %>();
 <%_ } }
 _%>
-<%_ function generateFunctionCall_Original(item) { _%>
-    <%_ if (item.type === 'function' && (item.outputs !== null && item.outputs.length === 1)) { _%>
-        Task<%- getGenericReturnType(item) -%> <%= capitalizeFirstLetter(item.name) %>CallAsync(<%- generateFunctionInputParameters(item) -%>);
-<%_ } }
-_%>
 <%_ function generateFunctionCall(item) { _%>
-    <%_ if (item.type === 'function' && (item.outputs !== null && item.outputs.length === 1)) { _%>
+    <%_ if (item.type === 'function' && (item.outputs !=- null && item.outputs.length === 1)) { _%>
         Task<%- getGenericReturnType(item) -%> <%= capitalizeFirstLetter(item.name) %>CallAsync(<%- generateFunctionInputParameters(item) -%>);
-        Task<%- getGenericReturnType(item) -%> <%= capitalizeFirstLetter(item.name) %>CallAsync(string addressFrom, <%- generateFunctionTransactionInputParameters(item) -%> HexBigInteger gas = null, HexBigInteger valueAmount = null);
-<%_ } }
-_%>
-<%_ function generateFunctionCallMultipleOutputsDTO_Original(item) { _%>
-    <%_ if (item.type === 'function' && (item.outputs !== null && item.outputs.length > 1)) { _%>
-        Task<<%- capitalizeFirstLetter(item.name) -%>> <%= capitalizeFirstLetter(item.name) %>CallAsync(<%- generateFunctionInputParameters(item) -%>);
 <%_ } }
 _%>
 <%_ function generateFunctionCallMultipleOutputsDTO(item) { _%>
     <%_ if (item.type === 'function' && (item.outputs !== null && item.outputs.length > 1)) { _%>
-        Task<<%- capitalizeFirstLetter(item.name) -%>> <%= capitalizeFirstLetter(item.name) %>CallAsync(<%- generateFunctionInputParameters(item) -%>);
-        Task<<%- capitalizeFirstLetter(item.name) -%>> <%= capitalizeFirstLetter(item.name) %>CallAsync(string addressFrom, <%- generateFunctionTransactionInputParameters(item) -%> HexBigInteger gas = null, HexBigInteger valueAmount = null);
+        Task<<%- capitalizeFirstLetter(item.name)  -%>> <%= capitalizeFirstLetter(item.name) %>Async(<%- generateFunctionInputParameters(item) -%>);
 <%_ } }
 _%>
 <%_ function generateFunctionTransaction(item) { _%>
