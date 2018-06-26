@@ -1,0 +1,27 @@
+{
+  "name": "getstring",
+  "version": "0.0.0",
+  "description": "getstring",
+  "scripts": {
+    "clean": "rimraf ./contracts/build/*.*",
+    "lint": "solhint ./contracts/ArtifactOwnership.sol",
+    "ejs-lint": "ejslint ./templates/*.ejs",
+    "build": "npm run clean && mkdirp ./contracts/build && node compile_contract ./contracts/ArtifactOwnership.sol ./contracts/build ConsoleApp",
+    "test": "npm run lint && truffle test"
+  },
+  "author": "Stef Heyenrath",
+  "license": "MIT",
+  "engines": {
+    "node": ">=7.0.0",
+    "npm": "^3.0.0"
+  },
+  "devDependencies": {
+    "ejs": "^2.5.7",
+    "ejs-lint": "^0.3.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.2",
+    "solc": "^0.4.23",
+    "solhint": "^1.1.9",
+    "truffle": "^4.0.3"
+  }
+}

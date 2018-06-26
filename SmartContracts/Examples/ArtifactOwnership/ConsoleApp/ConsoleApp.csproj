@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Solidity\contracts\build\ArtifactOwnershipService.Generated.cs" Link="ArtifactOwnershipService.Generated.cs" />
+    <Compile Include="..\Solidity\contracts\build\IArtifactOwnershipService.Generated.cs" Link="IArtifactOwnershipService.Generated.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nethereum.Geth" Version="2.2.3" />
+    <PackageReference Include="Nethereum.Web3" Version="2.2.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+</Project>
