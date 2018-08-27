@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <Compile Include="..\Solidity\contracts\build\IMultiplyContractService.Generated.cs" Link="IMultiplyContractService.Generated.cs" />
-    <Compile Include="..\Solidity\contracts\build\MultiplyContract.Generated.cs" Link="MultiplyContract.Generated.cs" />
     <Compile Include="..\Solidity\contracts\build\MultiplyContractService.Generated.cs" Link="MultiplyContractService.Generated.cs" />
   </ItemGroup>
 
