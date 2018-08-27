@@ -3,4 +3,3 @@ coverageEnv
 scTopics
 allFiredEvents
 coverage.json
-contracts/build/**
