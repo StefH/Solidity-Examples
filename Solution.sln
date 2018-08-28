@@ -4,20 +4,44 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SupplyChainLog", "SupplyChainLog", "{F432E101-1F5D-422C-9AC7-A11A42EE4827}"
+	ProjectSection(SolutionItems) = preProject
+		SmartContracts\SupplyChainLog\Solidity\contracts\Authorization.sol = SmartContracts\SupplyChainLog\Solidity\contracts\Authorization.sol
+		SmartContracts\SupplyChainLog\Solidity\contracts\Common.sol = SmartContracts\SupplyChainLog\Solidity\contracts\Common.sol
+		SmartContracts\SupplyChainLog\Solidity\contracts\Migrations.sol = SmartContracts\SupplyChainLog\Solidity\contracts\Migrations.sol
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "SmartContracts\SupplyChainLog\ConsoleApp\ConsoleApp.csproj", "{C0C4608C-F629-4A32-BE2C-194ED306919D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ArtifactOwnership", "ArtifactOwnership", "{DE98848E-1D97-4703-BA9C-9F8FEB6CBE55}"
+	ProjectSection(SolutionItems) = preProject
+		SmartContracts\Examples\ArtifactOwnership\Solidity\contracts\AccessControls.sol = SmartContracts\Examples\ArtifactOwnership\Solidity\contracts\AccessControls.sol
+		SmartContracts\Examples\ArtifactOwnership\Solidity\contracts\ArtifactOwnership.sol = SmartContracts\Examples\ArtifactOwnership\Solidity\contracts\ArtifactOwnership.sol
+		SmartContracts\Examples\ArtifactOwnership\Solidity\contracts\Artifacts.sol = SmartContracts\Examples\ArtifactOwnership\Solidity\contracts\Artifacts.sol
+		SmartContracts\Examples\ArtifactOwnership\Solidity\contracts\ERC721.sol = SmartContracts\Examples\ArtifactOwnership\Solidity\contracts\ERC721.sol
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "SmartContracts\Examples\ArtifactOwnership\ConsoleApp\ConsoleApp.csproj", "{9D053A29-2F23-420A-8E38-D036FBED0D05}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "SmartContracts\Examples\Multiply\ConsoleApp\ConsoleApp.csproj", "{2212206C-CF92-4A05-B681-FDA69FDA6E19}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Multiply", "Multiply", "{23FA672E-008F-44C2-B8BF-FCBE5B3ACAC8}"
+	ProjectSection(SolutionItems) = preProject
+		SmartContracts\Examples\Multiply\Solidity\contracts\MultiplyContract.sol = SmartContracts\Examples\Multiply\Solidity\contracts\MultiplyContract.sol
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "SmartContracts\Examples\GetString\ConsoleApp\ConsoleApp.csproj", "{1CFDB742-A75D-4A20-9784-3CCFE4AFA768}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GetString", "GetString", "{CFFF38FC-2E6A-45BC-BE44-339A5E41D421}"
+	ProjectSection(SolutionItems) = preProject
+		SmartContracts\Examples\GetString\Solidity\contracts\GetStringContract.sol = SmartContracts\Examples\GetString\Solidity\contracts\GetStringContract.sol
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "SmartContracts\Examples\UUIDProvider\ConsoleApp\ConsoleApp.csproj", "{23699863-414D-41BA-B860-C4F36C3499F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UUIDProvider", "UUIDProvider", "{460EAF7A-A63B-4681-8B69-B58B073D0513}"
+	ProjectSection(SolutionItems) = preProject
+		SmartContracts\Examples\UUIDProvider\Solidity\contracts\UUIDProviderContract.sol = SmartContracts\Examples\UUIDProvider\Solidity\contracts\UUIDProviderContract.sol
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +65,10 @@ Global
 		{1CFDB742-A75D-4A20-9784-3CCFE4AFA768}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CFDB742-A75D-4A20-9784-3CCFE4AFA768}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CFDB742-A75D-4A20-9784-3CCFE4AFA768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23699863-414D-41BA-B860-C4F36C3499F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23699863-414D-41BA-B860-C4F36C3499F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23699863-414D-41BA-B860-C4F36C3499F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23699863-414D-41BA-B860-C4F36C3499F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +78,7 @@ Global
 		{9D053A29-2F23-420A-8E38-D036FBED0D05} = {DE98848E-1D97-4703-BA9C-9F8FEB6CBE55}
 		{2212206C-CF92-4A05-B681-FDA69FDA6E19} = {23FA672E-008F-44C2-B8BF-FCBE5B3ACAC8}
 		{1CFDB742-A75D-4A20-9784-3CCFE4AFA768} = {CFFF38FC-2E6A-45BC-BE44-339A5E41D421}
+		{23699863-414D-41BA-B860-C4F36C3499F3} = {460EAF7A-A63B-4681-8B69-B58B073D0513}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AF1273BA-D953-4C1F-BCB4-D48297524988}
