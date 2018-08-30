@@ -1,12 +1,12 @@
 {
-  "name": "multiply",
+  "name": "election",
   "version": "0.0.0",
-  "description": "multiply",
+  "description": "election",
   "scripts": {
     "clean": "rimraf ./contracts/build/*.*",
-    "lint": "solhint ./contracts/MultiplyContract.sol",
+    "lint": "solhint ./contracts/ElectionContract.sol",
     "ejs-lint": "ejslint ./templates/*.ejs",
-    "build": "npm test && npm run clean && mkdirp ./contracts/build && node compile_contract ./contracts/MultiplyContract.sol ./contracts/build ConsoleApp",
+    "build": "npm test && npm run clean && mkdirp ./contracts/build && node compile_contract ./contracts/ElectionContract.sol ./contracts/build ConsoleApp",
     "test": "npm run lint && truffle test"
   },
   "author": "Stef Heyenrath",

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Solidity\contracts\build\IElectionContractService.Generated.cs" Link="IElectionContractService.Generated.cs" />
+    <Compile Include="..\Solidity\contracts\build\ElectionContractService.Generated.cs" Link="ElectionContractService.Generated.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nethereum.Geth" Version="2.5.1" />
+    <PackageReference Include="Nethereum.Web3" Version="2.5.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>
