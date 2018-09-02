@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Nethereum.Web3.Accounts.Managed;
 using Nethereum.Geth;
+using Nethereum.Hex.HexTypes;
 
 namespace ConsoleApp
 {
@@ -12,16 +13,15 @@ namespace ConsoleApp
         private static int timeoutInMinutes = 5;
 
         /// <summary>
-        /// Simple ConsoleApp to connect to your local Ethereum to deploy a contract and run functions and transactions.
-        /// This project depends on the Solidity project.
-        /// So make sure to run `npm run build`.
+        /// Simple ConsoleApp to connect to a Ethereum Blockchain to deploy a contract and run functions and transactions.
+        /// This project depends on the Solidity project. So make sure to run `npm run build`.
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
             Console.WriteLine("Blockchain - Ethereum - ConsoleApp - Multiply");
 
-            string senderAddress = "0xf03218c7ba0c92296f87279f0665ad290ba63f0f";
+            string senderAddress = "0xd0352781461f5e06329ea6b9d002b67e475c0669";
             string password = "password";
 
             Console.WriteLine(new string('-', 80));
@@ -45,10 +45,9 @@ namespace ConsoleApp
             var web3 = new Web3Geth(account, "http://127.0.0.1:3100");
             web3.TransactionManager.DefaultGasPrice = BigInteger.Zero; // Needed for connecting to private network (gas has no real meaning there)
 
-            // var gas = new HexBigInteger(900000);
-            // HexBigInteger gas = null;
+            var gas = new HexBigInteger(900000);
             Console.WriteLine("MultiplyContractService.DeployContractAsync");
-            string contractAddress = await MultiplyContractService.DeployContractAsync(web3, fromAddress, 4);
+            string contractAddress = await MultiplyContractService.DeployContractAsync(web3, fromAddress, 4, null, gas);
 
             IMultiplyContractService service = new MultiplyContractService(web3, contractAddress);
 
@@ -77,7 +76,14 @@ namespace ConsoleApp
             await service.ExecuteTransactionAsync((srv) => srv.AddOrderAsync(fromAddress, "new 1"));
             await service.ExecuteTransactionAsync((srv) => srv.AddOrderAsync(fromAddress, "new 2"));
             await service.ExecuteTransactionAsync((srv) => srv.AddOrderAsync(fromAddress, "new 3"));
-            await service.ExecuteTransactionAsync((srv) => srv.AddOrderAsync(fromAddress, ""));
+            try
+            {
+                await service.ExecuteTransactionAsync((srv) => srv.AddOrderAsync(fromAddress, ""));
+            }
+            catch
+            {
+                Console.WriteLine("Adding order with empty name fails (as expected)");
+            }
 
             var count = await service.CountOrdersCallAsync(fromAddress);
             Console.WriteLine("count: " + count);
@@ -94,14 +100,14 @@ namespace ConsoleApp
             Console.WriteLine("existingOrder: " + JsonConvert.SerializeObject(existingOrder, Formatting.Indented));
 
             Guid g = Guid.NewGuid();
-            var notfoundOrder = await service.GetOrderByIdCallAsync(fromAddress, g.ToByteArray());
-            Console.WriteLine("notfoundOrder: " + JsonConvert.SerializeObject(notfoundOrder, Formatting.Indented));
-
-            //var closeResult = await service.CloseAsync(fromAddress, gas);
-            //Console.WriteLine($"closeResult = {closeResult}");
-
-            //var transactionHash2 = await service.AddAsync(fromAddress, 12, 13, gas);
-            //Console.WriteLine($"transactionHash2 for Add = {transactionHash2}");
+            try
+            {
+                await service.GetOrderByIdCallAsync(fromAddress, g.ToByteArray());
+            }
+            catch
+            {
+                Console.WriteLine("Order not found by " + g + ", (as expected)");
+            }
         }
     }
 }

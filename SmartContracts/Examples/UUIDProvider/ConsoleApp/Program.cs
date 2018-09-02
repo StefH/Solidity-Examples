@@ -10,10 +10,8 @@ namespace ConsoleApp
     class Program
     {
         /// <summary>
-        /// Simple ConsoleApp to connect to your local Ethereum to deploy a contract and run functions and transactions. This project depends on the Solidity project.
-        /// So make sure to run `npm run build`.
-        /// 
-        /// Also make sure to start `\SupplyChainLog\Blockchain\testchain.bat`.
+        /// Simple ConsoleApp to connect to a Ethereum Blockchain to deploy a contract and run functions and transactions.
+        /// This project depends on the Solidity project. So make sure to run `npm run build`.
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args)
