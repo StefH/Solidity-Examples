@@ -70,9 +70,19 @@ namespace ConsoleApp
                 // voting for Bob should fail !
                 await service.ExecuteTransactionAsync((srv) => srv.VoteAsync(Account1, "Bob"));
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Account1 voting for Bob has failed (as expected)");
+            }
+
+            try
+            {
+                // Recursion should fail !
+                await service.RecursionAsync(Account1, BigInteger.One);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Recursion failed (as expected)");
             }
         }
     }

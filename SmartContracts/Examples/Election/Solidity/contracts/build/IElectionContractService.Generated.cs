@@ -15,6 +15,7 @@ namespace ConsoleApp
 
         Task<BlockWithTransactions> GetBlockWithTransactionsAsync(string blockhash);
 
+        Function GetFunctionRecursion();
         Function GetFunctionGetVote();
         Function GetFunctionVote();
 
@@ -22,6 +23,7 @@ namespace ConsoleApp
         Task<BigInteger> GetVoteCallAsync(string name);
         Task<BigInteger> GetVoteCallAsync(string addressFrom, string name, HexBigInteger gas = null, HexBigInteger valueAmount = null);
 
+        Task<string> RecursionAsync(string addressFrom, BigInteger i, HexBigInteger gas = null, HexBigInteger valueAmount = null);
         Task<string> VoteAsync(string addressFrom, string name, HexBigInteger gas = null, HexBigInteger valueAmount = null);
 
 

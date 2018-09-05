@@ -24,4 +24,8 @@ contract ElectionContract {
 
         candidateVote[name]++;
     }
+
+    function recursion(int i) public {
+        recursion(i);
+    }
 }
